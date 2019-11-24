@@ -50,11 +50,23 @@
 .mt-20{
     margin-top: 20px;
 }
+.mt-30{
+    margin-top: 20px;
+}
+.mb-5{
+    margin-bottom: 5px;
+}
+.mb-20{
+    margin-bottom: 20px;
+}
 
 ion-item {
     --ion-safe-area-right: 0;
   }
 
+.page_subTitle{
+    font-size: 20px;
+}
 .text-success {
     color: var(--ion-color-success) !important;
 }
@@ -76,6 +88,12 @@ ion-item {
 .bg_white{
     background-color: #ffffff;
     --background:#ffffff;
+}
+.bor_t_red{
+    border-top: 4px solid var(--ion-color-secondary);
+}
+.bor_t_blue{
+    border-top: 4px solid var(--ion-color-primary);
 }
 .app_searchStyle{
     --background: #fff;
@@ -141,4 +159,14 @@ ion-item {
             margin:0px;
         }
     }
+}
+
+.form_input{
+    background-color: #fff;
+    --background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    --padding-end:10px;
+    border-radius: 5px;
+    min-height: 60px;
 }

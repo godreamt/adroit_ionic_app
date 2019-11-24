@@ -11,50 +11,35 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col>
-				<ion-item class="ion-no-padding">
+				<ion-item class="form_input" lines="none">
 					<ion-label position="floating">First Name</ion-label>
 					<ion-input formControlName="firstName"></ion-input>
 				</ion-item>
-			</ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-col>
-				<ion-item class="ion-no-padding">
+
+				<ion-item class="form_input" lines="none">
 					<ion-label position="floating">Last Name</ion-label>
 					<ion-input formControlName="lastName"></ion-input>
 				</ion-item>
-			</ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-col>
-				<ion-item class="ion-no-padding">
+
+				<ion-item class="form_input" lines="none">
 					<ion-label position="floating">Email</ion-label>
 					<ion-input formControlName="email"></ion-input>
 				</ion-item>
-			</ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-col>
-				<ion-item class="ion-no-padding">
+
+				<ion-item class="form_input" lines="none">
 					<ion-label position="floating">Mobile Number</ion-label>
 					<ion-input formControlName="mobileNumber"></ion-input>
 				</ion-item>
-			</ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-col>
-				<ion-item class="ion-no-padding">
+
+				<ion-item class="form_input" lines="none">
 					<ion-label>Country</ion-label>
 					<ion-select formControlName="country_id" (ionChange)="getStates()" placeholder="---">
 						<ion-select-option *ngFor="let item of countryList;" [value]="item.id">{{ item.country }}
 						</ion-select-option>
 					</ion-select>
 				</ion-item>
-			</ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-col>
-				<ion-item class="ion-no-padding">
+
+				<ion-item class="form_input" lines="none">
 					<ion-label>State</ion-label>
 					<ion-select formControlName="state_id"  placeholder="---"
 						(ionChange)="getRegions()">
@@ -62,11 +47,8 @@
 						</ion-select-option>
 					</ion-select>
 				</ion-item>
-			</ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-col>
-				<ion-item class="ion-no-padding">
+
+				<ion-item class="form_input" lines="none">
 					<ion-label>Region</ion-label>
 					<ion-select formControlName="region_id"  placeholder="---"
 						(ionChange)="getArea()">
@@ -74,27 +56,21 @@
 						</ion-select-option>
 					</ion-select>
 				</ion-item>
-			</ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-col>
-				<ion-item class="ion-no-padding">
+
+				<ion-item class="form_input" lines="none">
 					<ion-label>Area</ion-label>
 					<ion-select formControlName="area_id"  placeholder="---">
 						<ion-select-option *ngFor="let item of areaList;"  [value]="item.id">{{ item.area }}
 						</ion-select-option>
 					</ion-select>
 				</ion-item>
-			</ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-col>
-				<ion-item class="ion-no-padding">
+
+				<ion-item class="form_input" lines="none">
 					<ion-label position="floating">Address</ion-label>
 					<ion-input formControlName="address"></ion-input>
 				</ion-item>
 			</ion-col>
 		</ion-row>
-		<ion-button color="primary" (click)="updateUser()">Save</ion-button>
+		<ion-button color="primary" expand="block" (click)="updateUser()">Save</ion-button>
 	</ion-grid>
 </ion-content>
