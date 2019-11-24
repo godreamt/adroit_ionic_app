@@ -32,7 +32,7 @@ export class VendorUpdatePage implements OnInit {
       mobileNumber: ['', [Validators.required]],
       password: ['1234567'],
       isActive: ['yes', [Validators.required]],
-      roles: ['vendor', [Validators.required]],
+      roles: ['vendors', [Validators.required]],
       monthlySalary: [''],
       salesTarget: [''],
       collectionTarget: [''],
@@ -119,7 +119,10 @@ export class VendorUpdatePage implements OnInit {
     this._serv.url = "user";
     this._serv.create(this.form.value).subscribe(response => {
       this.alert.success(response[0]);
-      this.router.navigate(['/view-my-vendors/'+this.userId]);
+      if(this.userId)
+        this.router.navigate(['/view-my-vendors/'+this.userId]);
+      else 
+        this.router.navigate(['/my-vendors']);
     }, error => {
       this.alert.showApiError(error)
     })
