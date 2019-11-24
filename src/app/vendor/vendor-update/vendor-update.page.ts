@@ -113,7 +113,6 @@ export class VendorUpdatePage implements OnInit {
 
   updateUser() {
     this._serv.markFormGroupTouched(this.form);
-    console.log(this.form, this.form.errors);
     
     if(this.form.invalid)return;
     this._serv.url = "user";
