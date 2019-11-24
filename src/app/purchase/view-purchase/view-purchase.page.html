@@ -91,7 +91,7 @@
   <ion-toolbar color="light">
     <ion-title class="text-danger">{{ orderData.balanceAmount }}</ion-title>
     <ion-buttons slot="end" *ngIf="orderData.balanceAmount > 0">
-      <ion-button color="primary">
+      <ion-button color="primary" [routerLink]="['/collection-update/'+orderData?.id]">
         Collect
       </ion-button>
     </ion-buttons>

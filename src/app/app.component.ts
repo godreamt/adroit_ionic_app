@@ -39,6 +39,18 @@ export class AppComponent {
       icon: 'briefcase'
     },
     {
+      title: 'Collection History',
+      type: 'link',
+      url: '/collection-list',
+      icon: 'briefcase'
+    },
+    {
+      title: 'Expense History',
+      type: 'link',
+      url: '/expense-list',
+      icon: 'briefcase'
+    },
+    {
       title: 'Logout',
       type: 'func',
       function:'logout',

@@ -1,6 +1,7 @@
 import { AuthGaurd } from './shared/services/auth-gaurd.service';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { VendorUpdateResolver } from './vendor/vendor-update/vendor.resolver';
 
 const routes: Routes = [
   {
@@ -29,9 +30,51 @@ const routes: Routes = [
     canActivate: [AuthGaurd],
     loadChildren: './purchase/purchase-list/purchase-list.module#PurchaseListPageModule' 
   },
-  { path: 'purchase-view', loadChildren: './purchase/view-purchase/view-purchase.module#ViewPurchasePageModule' },
-  { path: 'my-vendors', loadChildren: './vendor/my-vendors/my-vendors.module#MyVendorsPageModule' },
-  { path: 'view-my-vendors', loadChildren: './vendor/view-my-vendors/view-my-vendors.module#ViewMyVendorsPageModule' }
+  { 
+    path: 'purchase-view', 
+    loadChildren: './purchase/view-purchase/view-purchase.module#ViewPurchasePageModule' 
+  },
+  { 
+    path: 'my-vendors', 
+    loadChildren: './vendor/my-vendors/my-vendors.module#MyVendorsPageModule' 
+  },
+  { 
+    path: 'view-my-vendors', 
+    loadChildren: './vendor/view-my-vendors/view-my-vendors.module#ViewMyVendorsPageModule' 
+  },
+  { 
+    path: 'collection-update/:id', 
+    loadChildren: './collection/collection-update/collection-update.module#CollectionUpdatePageModule' 
+  },
+  { 
+    path: 'collection-list', 
+    loadChildren: './collection/collection-list/collection-list.module#CollectionListPageModule' 
+  },
+  { 
+    path: 'collection-view', 
+    loadChildren: './collection/collection-view/collection-view.module#CollectionViewPageModule' 
+  },
+  { 
+    path: 'expense-list', 
+    loadChildren: './expense/expense-list/expense-list.module#ExpenseListPageModule' 
+  },
+  { 
+    path: 'expense-update', 
+    loadChildren: './expense/expense-update/expense-update.module#ExpenseUpdatePageModule' 
+  },
+  { 
+    path: 'expense-view', 
+    loadChildren: './expense/expense-view/expense-view.module#ExpenseViewPageModule' 
+  },
+  { 
+    path: 'vendor-update', 
+    loadChildren: './vendor/vendor-update/vendor-update.module#VendorUpdatePageModule' 
+  },
+  { 
+    path: 'vendor-update/:id', 
+    resolve: {user: VendorUpdateResolver},
+    loadChildren: './vendor/vendor-update/vendor-update.module#VendorUpdatePageModule' 
+  }
 ];
 
 @NgModule({
