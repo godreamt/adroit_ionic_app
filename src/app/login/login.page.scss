@@ -1,0 +1,16 @@
+ion-item{
+    --background: transparent;
+    --color: #fff;
+}
+ion-button{
+    --background: #062f77;
+}
+
+.login_screen_wrapper {
+    background-image: linear-gradient(to bottom, var(--ion-color-primary), var(--ion-color-secondary));
+    min-height: 100vh;
+
+    & .login_text {
+        color: #fff;
+    }
+}
