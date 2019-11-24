@@ -111,16 +111,15 @@ export class VendorUpdatePage implements OnInit {
     }
   }
 
-  updateUser(event) {
-    event.preventDefault();
+  updateUser() {
     this._serv.markFormGroupTouched(this.form);
-    console.log(this.form);
+    console.log(this.form, this.form.errors);
     
     if(this.form.invalid)return;
     this._serv.url = "user";
     this._serv.create(this.form.value).subscribe(response => {
       this.alert.success(response[0]);
-      this.router.navigate(['/user-manager/list']);
+      this.router.navigate(['/view-my-vendors/'+this.userId]);
     }, error => {
       this.alert.showApiError(error)
     })

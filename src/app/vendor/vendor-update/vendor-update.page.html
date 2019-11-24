@@ -45,8 +45,8 @@
 			<ion-col>
 				<ion-item class="ion-no-padding">
 					<ion-label>Country</ion-label>
-					<ion-select formControlName="country_id" (ionChange)="getStates()" >
-						<ion-select-option *ngFor="let item of countryList;" [value]="item.id">{{ form.get('country_id').value }}
+					<ion-select formControlName="country_id" (ionChange)="getStates()" placeholder="---">
+						<ion-select-option *ngFor="let item of countryList;" [value]="item.id">{{ item.country }}
 						</ion-select-option>
 					</ion-select>
 				</ion-item>
@@ -56,7 +56,7 @@
 			<ion-col>
 				<ion-item class="ion-no-padding">
 					<ion-label>State</ion-label>
-					<ion-select formControlName="state_id"
+					<ion-select formControlName="state_id"  placeholder="---"
 						(ionChange)="getRegions()">
 						<ion-select-option *ngFor="let item of stateList;" [value]="item.id">{{ item.state }}
 						</ion-select-option>
@@ -68,7 +68,7 @@
 			<ion-col>
 				<ion-item class="ion-no-padding">
 					<ion-label>Region</ion-label>
-					<ion-select formControlName="region_id"
+					<ion-select formControlName="region_id"  placeholder="---"
 						(ionChange)="getArea()">
 						<ion-select-option *ngFor="let item of regionList;" [value]="item.id">{{ item.region }}
 						</ion-select-option>
@@ -80,12 +80,21 @@
 			<ion-col>
 				<ion-item class="ion-no-padding">
 					<ion-label>Area</ion-label>
-					<ion-select formControlName="area_id">
-						<ion-select-option *ngFor="let item of areaList;" [value]="item.id">{{ item.area }}
+					<ion-select formControlName="area_id"  placeholder="---">
+						<ion-select-option *ngFor="let item of areaList;"  [value]="item.id">{{ item.area }}
 						</ion-select-option>
 					</ion-select>
 				</ion-item>
 			</ion-col>
 		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-item class="ion-no-padding">
+					<ion-label position="floating">Address</ion-label>
+					<ion-input formControlName="address"></ion-input>
+				</ion-item>
+			</ion-col>
+		</ion-row>
+		<ion-button color="primary" (click)="updateUser()">Save</ion-button>
 	</ion-grid>
 </ion-content>
