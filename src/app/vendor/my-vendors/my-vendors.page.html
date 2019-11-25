@@ -4,23 +4,18 @@
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
     <ion-title>My Vendors</ion-title>
-		<ion-buttons slot="primary">
-		  <ion-button color="end" [routerLink]="['/vendor-update']">
+		<ion-buttons slot="end">
+		  <ion-button color="light" class="button-clear" [routerLink]="['/vendor-update']">
 			<ion-icon name="add"></ion-icon>
 		  </ion-button>
 		</ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-grid  class="ion-padding">
-      <ion-row>
-        <ion-col>
-              <ion-searchbar animated [formControl]="searchBar"></ion-searchbar>
-        </ion-col>
-      </ion-row>
-  
-      <ion-list>
+<ion-content class="ion-padding">
+    <ion-searchbar class="p-0 app_searchStyle" animated [formControl]="searchBar"></ion-searchbar>
+    <div class="list_wrapper">
+      <ion-list lines="none" class="app_list_style">
           <ion-item *ngFor="let item of filteredVendorList | async;" [routerLink]="['/view-my-vendors/'+item.id]">
               <ion-label class="ion-text-wrap">{{ item.firstName }} {{ item.lastName }}</ion-label>
               <ion-note slot="end" [class.text-success]="item.vendorBalanceAmount == 0" [class.text-danger]="item.vendorBalanceAmount > 0">{{ item.vendorBalanceAmount }}</ion-note>
@@ -29,6 +24,6 @@
               <ion-label>No Data</ion-label>
           </ion-item>
       </ion-list>
-    </ion-grid>
+    </div>
   </ion-content>
   

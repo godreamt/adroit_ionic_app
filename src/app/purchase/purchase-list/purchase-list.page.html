@@ -9,11 +9,7 @@
 
 <ion-content>
   <ion-grid  class="ion-padding">
-    <ion-row>
-      <ion-col>
-            <ion-searchbar animated [formControl]="searchBar" ></ion-searchbar>
-      </ion-col>
-    </ion-row>
+      <ion-searchbar class="p-0 app_searchStyle" animated [formControl]="searchBar" ></ion-searchbar>
 
     <!-- <ion-list>
         <ion-item *ngFor="let item of filteredVendorList | async;" [routerLink]="['/new-purchase/'+item.id]">
@@ -23,8 +19,8 @@
             <ion-label>No Data</ion-label>
         </ion-item>
     </ion-list> -->
-
-    <ion-list>
+    <div class="list_wrapper mt-20">
+    <ion-list lines="none" class="app_list_style">
       <ion-item  *ngFor="let item of orderList;" class="ion-no-padding" [routerLink]="['/purchase-view/'+item.id]">
         <ion-label>
           <h3>{{ item.autoId }} - {{ item.vendorUserName }}</h3>
@@ -49,7 +45,7 @@
           <ion-label>No Data</ion-label>
       </ion-item>
     </ion-list>
-
+</div>
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" #purchaseList>
       <ion-infinite-scroll-content
         loadingSpinner="bubbles"

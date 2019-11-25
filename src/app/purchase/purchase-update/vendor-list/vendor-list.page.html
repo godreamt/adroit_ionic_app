@@ -9,13 +9,9 @@
 
 <ion-content>
   <ion-grid  class="ion-padding">
-    <ion-row>
-      <ion-col>
-            <ion-searchbar animated [formControl]="searchBar"></ion-searchbar>
-      </ion-col>
-    </ion-row>
-
-    <ion-list>
+      <ion-searchbar class="p-0 app_searchStyle" animated [formControl]="searchBar"></ion-searchbar>
+  <div class="list_wrapper mt-20">
+    <ion-list lines="none" class="app_list_style">
         <ion-item *ngFor="let item of filteredVendorList | async;" [routerLink]="['/new-purchase/'+item.id]">
             <ion-label>{{ item.firstName }} {{ item.lastName }}</ion-label>
         </ion-item>
@@ -23,5 +19,6 @@
             <ion-label>No Data</ion-label>
         </ion-item>
     </ion-list>
+  </div>
   </ion-grid>
 </ion-content>
