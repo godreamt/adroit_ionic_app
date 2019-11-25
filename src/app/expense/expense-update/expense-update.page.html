@@ -3,7 +3,26 @@
     <ion-title>expense-update</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div></div>
+      </ion-col>
+      <ion-col>
+        <div> <button ion-button small icon-only outline (click)="AccessCamera()">
+            <ion-icon name="camera"> Camera</ion-icon>
+          </button></div>
+      </ion-col>
+      <ion-col>
+        <div> <button ion-button small icon-only outline (click)="AccessGallery()">
+            <ion-icon name="image"> Gallery</ion-icon>
+          </button></div>
+      </ion-col>
+      <ion-col>
+        <div></div>
+      </ion-col>
+    </ion-row>
+    <img [src]="base64Image" *ngIf="base64Image" />
+  </ion-grid>
 </ion-content>

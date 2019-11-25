@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { TOKEN_KEY } from './shared/services/auth.service';
+import { Camera } from '@ionic-native/camera/ngx';
 
 
 export class AddHeaderInterceptor implements HttpInterceptor {
@@ -42,6 +43,7 @@ export class AddHeaderInterceptor implements HttpInterceptor {
       useClass: AddHeaderInterceptor,
       multi: true,
     },
+    Camera 
   ],
   bootstrap: [AppComponent]
 })

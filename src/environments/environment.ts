@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  url : "http://127.0.0.1:8000/api/",
-  imageUrl: 'http://127.0.0.1:8000'
+  url : "http://adroitconchem.com/api/",
+  imageUrl: 'http://adroitconchem.com'
 };
 
 /*

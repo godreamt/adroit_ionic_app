@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ExpenseUpdatePage } from './expense-update.page';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { Camera } from '@ionic-native/camera';
 
 const routes: Routes = [
   {
@@ -19,8 +21,12 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
-  declarations: [ExpenseUpdatePage]
+  declarations: [ExpenseUpdatePage],
+  providers: [
+    // Camera
+  ]
 })
 export class ExpenseUpdatePageModule {}
