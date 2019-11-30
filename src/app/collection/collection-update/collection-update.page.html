@@ -11,15 +11,12 @@
     <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-item class="ion-no-padding">
+            <ion-item class="form_input" lines="none">
               <ion-label position="floating">Collection Amount</ion-label>
               <ion-input formControlName="collectionAmount"></ion-input>
             </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-item class="ion-no-padding">
+          
+            <ion-item class="form_input" lines="none">
               <ion-label>Payment method</ion-label>
               <ion-select formControlName="paymentMethod" placeholder="---">
                 <ion-select-option value="cash">Cash</ion-select-option>
@@ -29,28 +26,18 @@
                 <ion-select-option value="other">Other</ion-select-option>
               </ion-select>
             </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row [hidden]="form.get('paymentMethod').value == 'cash'">
-          <ion-col>
-            <ion-item class="ion-no-padding">
-              <ion-label position="floating">Related Info</ion-label>
-              <ion-input formControlName="relatedInfo"></ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-item class="ion-no-padding">
+            <div [hidden]="form.get('paymentMethod').value == 'cash'">
+                <ion-item class="form_input" lines="none">
+                  <ion-label position="floating">Related Info</ion-label>
+                  <ion-input formControlName="relatedInfo"></ion-input>
+                </ion-item>
+            </div>
+            <ion-item class="form_input" lines="none">
               <ion-label position="floating">Comments</ion-label>
               <ion-input formControlName="comments"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-button color="primary" (click)="makeNewCollection()">Save</ion-button>
-          </ion-col>
-        </ion-row>
+          <ion-button color="primary" expand="block" (click)="makeNewCollection()">Save</ion-button>
     </ion-grid>
 </ion-content>

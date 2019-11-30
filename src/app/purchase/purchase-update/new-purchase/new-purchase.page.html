@@ -8,21 +8,23 @@
 </ion-header>
 
 <ion-content class="ion-padding" [formGroup]="form">
-  <ion-card class="m-0">
-    <ion-card-header>
-      <ion-card-subtitle>{{ userData?.area }}, {{ userData?.region }} - {{ userData?.state }},{{ userData?.country }}
-      </ion-card-subtitle>
-      <ion-card-title>{{ userData?.firstName }} {{ userData?.lastName }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-row>
-        <ion-text>Email : {{ userData?.mobileNumber }}</ion-text>
-      </ion-row>
-      <ion-row>
-        <ion-text>Mob : {{ userData?.email }}</ion-text>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
+    <div class="card_outer">
+    <ion-card class="bg_white card_style card_shadow">
+      <ion-card-header>
+        <ion-card-subtitle>{{ userData?.area }}, {{ userData?.region }} - {{ userData?.state }},{{ userData?.country }}
+        </ion-card-subtitle>
+        <ion-card-title>{{ userData?.firstName }} {{ userData?.lastName }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-text>Email : {{ userData?.mobileNumber }}</ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text>Mob : {{ userData?.email }}</ion-text>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
   <ion-row class="ion-margin-top">
     <ion-col>
       <div class="product_header">
@@ -33,7 +35,7 @@
       </div>
     </ion-col>
   </ion-row>
-  <ion-list class="m-0" formArrayName="items">
+  <ion-list class="mt-20 no-lines app_list_style" formArrayName="items">
     <ng-container *ngFor="let item of items['controls']; let i=index;" [formGroupName]="i">
       <ion-item-sliding>
         <ion-item (ionSwipe)="removeProduct()" class="ion-no-padding">

@@ -89,6 +89,14 @@ ion-item {
     background-color: #ffffff;
     --background:#ffffff;
 }
+.bg_primary{
+    background-color: var(--ion-color-primary);
+    --background:var(--ion-color-primary);
+}
+.bg_red{
+    background-color: var(--ion-color-secondary);
+    --background:var(--ion-color-secondary);
+}
 .bor_t_red{
     border-top: 4px solid var(--ion-color-secondary);
 }
@@ -123,6 +131,16 @@ ion-item {
             font-size: 14px;
         }
     }
+}
+.list_main_title{
+    font-size: 20px !important;
+    margin-top: 0px;
+    color: #17469e;
+}
+.list_title{
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+    white-space: normal;
 }
 .card_outer{
     margin-left: -10px;
@@ -160,7 +178,15 @@ ion-item {
         }
     }
 }
-
+.product_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & span{
+        font-size: 16px;
+        color: #333;
+    }
+}
 .form_input{
     background-color: #fff;
     --background: #fff;
