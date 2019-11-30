@@ -88,10 +88,13 @@ export class AddProductPage implements OnInit {
   }
   
   calculateTotalPrice() {
-    let value = {...this.form.value};
-    value.quantity = (isNaN(parseInt(value.quantity)))?0:parseInt(value.quantity);
-    value.price = (isNaN(parseFloat(value.price)))?0:parseFloat(value.price);
-    this.form.get('total').setValue((value.quantity * value.price).toString());
+    setTimeout(()=>{
+      
+      let value = {...this.form.value};
+      value.quantity = (isNaN(parseInt(value.quantity)))?0:parseInt(value.quantity);
+      value.price = (isNaN(parseFloat(value.price)))?0:parseFloat(value.price);
+      this.form.get('total').setValue((value.quantity * value.price).toString());
+    }, 200);
   }
 
   addProduct() {
