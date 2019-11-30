@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-expense-update',
@@ -9,8 +10,17 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class ExpenseUpdatePage implements OnInit {
   base64Image;
   picture;
+  form: FormGroup;
 
-  constructor(private camera: Camera) { }
+  constructor(private camera: Camera, private fb: FormBuilder) { 
+    this.form = this.fb.group({
+      id: [''],
+      title: ['', [Validators.required]],
+      description: [''],
+      expenseAmount: ['', [Validators.required]],
+      documentImage: ['']
+    });
+  }
 
   ngOnInit() {
   }
@@ -41,6 +51,10 @@ export class ExpenseUpdatePage implements OnInit {
            }, (err) => {
         console.log(err);
       });
+   }
+
+   saveFormData() {
+
    }
 
 }

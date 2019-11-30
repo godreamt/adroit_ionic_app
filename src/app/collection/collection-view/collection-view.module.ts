@@ -6,11 +6,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CollectionViewPage } from './collection-view.page';
+import { CollectionResolver } from './collection.resolver';
 
 const routes: Routes = [
   {
-    path: '',
-    component: CollectionViewPage
+    path: ':id',
+    component: CollectionViewPage,
+    resolve: {order: CollectionResolver}
   }
 ];
 

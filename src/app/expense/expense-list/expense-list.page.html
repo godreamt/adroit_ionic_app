@@ -1,9 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>expense-list</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Expenses</ion-title>
+		<ion-buttons slot="end">
+		  <ion-button color="light" class="button-clear" [routerLink]="['/expense-update']">
+			<ion-icon name="add"></ion-icon>
+		  </ion-button>
+		</ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button routerLink="/expense-update">Update</ion-button>
+  
 </ion-content>

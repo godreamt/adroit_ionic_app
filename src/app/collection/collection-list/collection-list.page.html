@@ -21,7 +21,7 @@
       </ion-list> -->
       <div class="list_wrapper mt-20">
       <ion-list lines="none" class="app_list_style">
-        <ion-item *ngFor="let item of collectionList;" class="ion-no-padding" [routerLink]="['/purchase-view/'+item.id]">
+        <ion-item *ngFor="let item of collectionList;" class="ion-no-padding" [routerLink]="['/collection-view/'+item.id]">
           <ion-label>
             <h3>{{ item.autoId }} - {{ item.vendorUserName }}</h3>
             <p>
