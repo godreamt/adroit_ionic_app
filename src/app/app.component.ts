@@ -1,5 +1,5 @@
 import { AuthService } from './shared/services/auth.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -12,7 +12,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent  implements OnInit{
   public appPages = [
     {
       title: 'Home',
@@ -58,6 +58,7 @@ export class AppComponent {
     }
   ];
   userState=false;
+  backButtonPress = 0;
 
   constructor(
     private platform: Platform,
@@ -91,6 +92,24 @@ export class AppComponent {
         this.tokenCheck();
       }
     });
+    });
+  }
+
+  ngOnInit(){
+    this.platform.backButton.subscribeWithPriority(100, () => {
+
+    
+
+
+      if(this.router.url == '/login' || this.router.url == '/home' || this.router.url == '/'){
+        // do something here
+        this.backButtonPress++;
+        setTimeout(()=> {
+          this.backButtonPress--;
+        }, 360)
+        if(this.backButtonPress >= 2)
+          navigator['app'].exitApp();
+      }
     });
   }
 

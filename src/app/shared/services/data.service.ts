@@ -94,15 +94,13 @@ export class DataService {
     return res;
   }
 
-  // get all values of the formGroup, loop over them
-  // then mark each field as touched
-  public markFormGroupTouched(formGroup: FormGroup) {
-    Object.values(formGroup.controls).forEach(control => {
+  markFormGroupTouched(formGroup: FormGroup) {
+    (<any>Object).values(formGroup.controls).forEach(control => {
       control.markAsTouched();
-  
-      if ('controls' in control) {
-        this.markFormGroupTouched(control as FormGroup);
-          // control.controls.forEach(c => this.markFormGroupTouched(c));
+      control.markAsDirty();
+
+      if (control.controls) {
+        this.markFormGroupTouched(control);
       }
     });
   }

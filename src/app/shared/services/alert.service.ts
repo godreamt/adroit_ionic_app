@@ -40,12 +40,18 @@ export class AlertService {
 
   async showApiError(error) {
     let message ="";
-    error = error.error;
-    if(error.hasOwnProperty('errors')) {
-        error = error.errors;
-        message = error[Object.keys(error)[0]]
-    }else {
-        message = error[0];
+    if(error){
+      if(error.hasOwnProperty('error')) {
+        error = error.error;
+        if(error.hasOwnProperty('errors')) {
+            error = error.errors;
+            message = error[Object.keys(error)[0]]
+        }else {
+            message = error[0];
+        }
+      }else {
+        message = error;
+      }
     }
     const toast = await this.toastController.create({
       message: message,
