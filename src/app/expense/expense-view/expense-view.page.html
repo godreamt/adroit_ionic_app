@@ -1,9 +1,28 @@
 <ion-header>
   <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons> -->
     <ion-title>expense-view</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+    <div class="image_box">
+      <img src="/assets/image/img.png" alt="">
+    </div>
 
+      <ion-grid>
+        <h3 class="page_subTitle mt-30">Expense Info</h3>
+        <div class="card_outer">
+          <ion-card class="bg_white card_style card_shadow">
+            <p class="table_view">Expense Date <span >Nov 24, 2019</span></p>
+            <p class="table_view">Title <span >test expense</span></p>
+            <p class="table_view">Expense Amount <span >8460</span></p>
+            <p class="table_view">Description <span >Demo text</span></p>
+            <p class="table_view">Status <span >Requested</span></p>
+            <p class="table_view mb-0">Allocated Amount <span >100</span></p>
+          </ion-card>
+        </div>
+      </ion-grid>
 </ion-content>
