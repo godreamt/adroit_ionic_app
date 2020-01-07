@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,18 @@ import { Chart } from 'chart.js';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+  dashStat;
+  targetReached = 0;
   @ViewChild("doughnutCanvas", {static:true}) doughnutCanvas: ElementRef;
   private doughnutChart: Chart;
-  constructor() {}
+  constructor(private route: ActivatedRoute) {
+    this.route.data.subscribe(response => {
+      this.dashStat = response.stat;
+      
+      this.targetReached = (this.dashStat.target.collectionTarget == 0)?100:(this.dashStat.target.collectionTargetReached * 100 )/this.dashStat.target.collectionTarget;
+      console.log(this.targetReached);
+    })
+  }
 
   ngOnInit() {
     // this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {

@@ -7,12 +7,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { CollectionViewPage } from './collection-view.page';
 import { CollectionResolver } from './collection.resolver';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
     path: ':id',
     component: CollectionViewPage,
-    resolve: {order: CollectionResolver}
+    resolve: {collection: CollectionResolver}
   }
 ];
 
@@ -21,7 +22,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   declarations: [CollectionViewPage]
 })

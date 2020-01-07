@@ -7,11 +7,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { ExpenseViewPage } from './expense-view.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ExpenseResolver } from './expense.resolver';
 
 const routes: Routes = [
   {
-    path: ':id',
-    component: ExpenseViewPage
+    path: ':expenseId',
+    component: ExpenseViewPage,
+    resolve: {expense : ExpenseResolver}
   }
 ];
 

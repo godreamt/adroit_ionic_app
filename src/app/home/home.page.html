@@ -17,16 +17,16 @@
             </ion-card-header>
             <div class="progres_bar_outer">
               <div class="progress_bar">
-                <span style="width:56%"></span>
+                <span [ngStyle]="{'width' : targetReached+'%'}"></span>
               </div>
               <div class="target_numbox">
                 <div class="num_inner ion-text-left">
                   <p>Target</p>
-                  <h4>5000</h4>
+                  <h4>{{ dashStat?.target?.collectionTarget }}</h4>
                 </div>
                 <div class="num_inner ion-text-right">
                   <p>Reached</p>
-                  <h4>8000</h4>
+                  <h4>{{ dashStat?.target?.collectionTargetReached }}</h4>
                 </div>
               </div>
             </div>
@@ -34,27 +34,85 @@
       </div>
       <h3 class="page_subTitle mt-30">Latest 5 purchase</h3>
       <ion-list class="no-lines app_list_style">
-        <ion-item class="ion-no-padding">
+        <ion-item class="ion-no-padding" *ngIf="dashStat?.purchase.length == 0">
           <ion-label>
             <h3>No data</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item  *ngFor="let item of dashStat?.purchase;" class="ion-no-padding" [routerLink]="['/purchase-view/'+item.id]">
+          <ion-label>
+            <h3>{{ item.autoId }} - {{ item.vendorUserName }}</h3>
+            <p>
+              <ion-text color="primary">
+                <ion-row class="ion-justify-content-between">
+                  <ion-text solt="start">
+                    Rs. {{ item.totalOrderAmount }}
+                  </ion-text>
+                  <ion-text solt="end">
+                    <span class="text-success" *ngIf="item.orderStatus == 'approved'">Approved</span>
+                    <span class="text-danger" *ngIf="item.orderStatus == 'cancelled'">Cancelled</span>
+                    <span class="text-primary" *ngIf="item.orderStatus == 'new'">New</span>
+                    <span class="text-warning" *ngIf="item.orderStatus == 'delivered'">Delivered</span>
+                  </ion-text>
+                </ion-row>
+              </ion-text>
+            </p>
           </ion-label>
         </ion-item>
       </ion-list>
 
       <h3 class="page_subTitle mt-30">Latest 5 collections</h3>
       <ion-list class="no-lines app_list_style">
-        <ion-item class="ion-no-padding">
+        <ion-item class="ion-no-padding" *ngIf="dashStat?.collection.length == 0">
           <ion-label>
             <h3>No data</h3>
           </ion-label>
         </ion-item>
+        <ion-item *ngFor="let item of dashStat?.collection;" class="ion-no-padding" [routerLink]="['/collection-view/'+item.id]">
+          <ion-label>
+            <h3>{{ item.autoId }} - {{ item.vendorUserName }}</h3>
+            <p>
+              <ion-text color="primary">
+                <ion-row class="ion-justify-content-between">
+                  <ion-text solt="start">
+                    Rs. {{ item.collectionAmount }}
+                  </ion-text>
+                  <ion-text solt="end">
+                    <span class="text-success" *ngIf="item.paymentStatus == 'processed'">Processed</span>
+                    <span class="text-danger" *ngIf="item.paymentStatus == 'cancelled'">Cancelled</span>
+                    <span class="text-primary" *ngIf="item.paymentStatus == 'pending'">Pending</span>
+                  </ion-text>
+                </ion-row>
+              </ion-text>
+            </p>
+          </ion-label>
+        </ion-item>
       </ion-list>
 
-      <h3 class="page_subTitle mt-30">Latest 5 expensess</h3>
+      <h3 class="page_subTitle mt-30">Latest 5 expenses</h3>
       <ion-list class="no-lines app_list_style">
-        <ion-item class="ion-no-padding">
+        <ion-item class="ion-no-padding" *ngIf="dashStat?.expense.length == 0">
           <ion-label>
             <h3>No data</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngFor="let item of dashStat?.expense;" class="ion-no-padding" [routerLink]="['/expense-view/'+item.id]">
+          <ion-label>
+            <h3>{{ item.title }}</h3>
+            <p>
+              <ion-text color="primary">
+                <ion-row class="ion-justify-content-between">
+                  <ion-text slot="start">
+                    Rs. {{ item.expenseAmount }}
+                  </ion-text>
+                  <ion-text slot="end">
+                    <span class="text-success" *ngIf="item.paymentStatus == 'approved'">Approved</span>
+                    <span class="text-danger" *ngIf="item.paymentStatus == 'cancelled'">Cancelled</span>
+                    <span class="text-primary" *ngIf="item.paymentStatus == 'requested'">Requested</span>
+                  </ion-text>
+                </ion-row>
+              </ion-text>
+            </p>
           </ion-label>
         </ion-item>
       </ion-list>
