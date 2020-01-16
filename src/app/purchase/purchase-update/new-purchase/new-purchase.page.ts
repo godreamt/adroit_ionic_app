@@ -48,7 +48,7 @@ addItem(category_id, category_name, sub_category_id, sub_category_name, product_
     sub_category_name: [sub_category_name],
     product_id: [product_id, [Validators.required]],
     product_name: [product_name, [Validators.required]],
-    price: [price],
+    productPrice: [price],
     total: [total],
     quantity: [quantity, Validators.required]
   })
