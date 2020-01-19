@@ -74,7 +74,10 @@ const routes: Routes = [
     path: 'vendor-update/:id', 
     resolve: {user: VendorUpdateResolver},
     loadChildren: './vendor/vendor-update/vendor-update.module#VendorUpdatePageModule' 
-  }
+  },
+  { path: 'monthly-report', loadChildren: './monthly-report/monthly-report.module#MonthlyReportPageModule' },
+  { path: 'monthly-report/:userId', loadChildren: './monthly-report/monthly-report.module#MonthlyReportPageModule' },
+
 ];
 
 @NgModule({

@@ -194,9 +194,10 @@ ion-item {
     margin-bottom: 10px;
     --padding-end:10px;
     border-radius: 5px;
-    min-height: 60px;
+    min-height: 50px;
 
     &.ion-invalid.ion-touched{
         border: 1px solid#ed1c24;
     }
 }
+

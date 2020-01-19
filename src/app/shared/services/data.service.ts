@@ -42,6 +42,10 @@ export class DataService {
     return this.http.get(this.apiUrl+this.url+"/"+url);
   }
 
+  getByParam(param){
+    return this.http.get(this.apiUrl+this.url+"?"+param);
+  }
+
   postByURL(url,formData={}){
     return this.http.post(this.apiUrl+this.url+"/"+url, formData );
   }
