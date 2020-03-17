@@ -51,6 +51,12 @@ export class AppComponent  implements OnInit{
       icon: 'briefcase'
     },
     {
+      title: 'Monthly Stats',
+      type: 'link',
+      url: '/monthly-report',
+      icon: 'briefcase'
+    },
+    {
       title: 'Logout',
       type: 'func',
       function:'logout',
