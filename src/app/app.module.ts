@@ -49,3 +49,7 @@ export class AddHeaderInterceptor implements HttpInterceptor {
 })
 export class AppModule {}
 
+// adroit_sales_key
+// 12345678
+// alias : adroit_sales_alias
+// Adroit
